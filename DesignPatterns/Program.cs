@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using DesignPatterns.Encapsulation;
 
 namespace DesignPatterns
 {
@@ -7,8 +8,7 @@ namespace DesignPatterns
     {
         static void Main(string[] args)
         {
-            var cal = Calculator();
-            Console.WriteLine(cal.CalculateTax());
+            var account = new Account();
         }
 
         static ITaxCalculator Calculator()
