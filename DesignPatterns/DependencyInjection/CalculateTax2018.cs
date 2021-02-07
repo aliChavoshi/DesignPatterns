@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DesignPatterns
+namespace DesignPatterns.DependencyInjection
 {
     public class CalculateTax2018 : ITaxCalculator
     {

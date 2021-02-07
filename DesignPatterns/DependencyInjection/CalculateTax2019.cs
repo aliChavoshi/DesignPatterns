@@ -1,4 +1,4 @@
-﻿namespace DesignPatterns
+﻿namespace DesignPatterns.DependencyInjection
 {
     public class CalculateTax2019 : ITaxCalculator
     {

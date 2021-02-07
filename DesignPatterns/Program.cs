@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using DesignPatterns.Abstraction;
-using DesignPatterns.Encapsulation;
+﻿using DesignPatterns.DependencyInjection;
+using DesignPatterns.Inheritance;
 
 namespace DesignPatterns
 {
@@ -9,8 +7,13 @@ namespace DesignPatterns
     {
         static void Main(string[] args)
         {
-            var mail = new MailService();
-            mail.
+            Drawing(new Checkbox());
+            Drawing(new TextBox());
+        }
+
+        static void Drawing(UiControl control)
+        {
+            control.Draw();
         }
 
         static ITaxCalculator Calculator()
