@@ -7,7 +7,13 @@ namespace DesignPatterns
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var cal = Calculator();
+            Console.WriteLine(cal.CalculateTax());
+        }
+
+        static ITaxCalculator Calculator()
+        {
+            return new CalculateTax2019();
         }
     }
 }
