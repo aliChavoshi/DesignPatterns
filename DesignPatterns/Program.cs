@@ -3,6 +3,8 @@ using DesignPatterns.DependencyInjection;
 using DesignPatterns.Inheritance;
 using DesignPatterns.MementoPattern;
 using DesignPatterns.MementoPattern.Exercise;
+using DesignPatterns.State;
+using DesignPatterns.State.Abuse;
 
 namespace DesignPatterns
 {
@@ -32,7 +34,7 @@ namespace DesignPatterns
 
             #region ExerciseMemento
 
-            var doc = new Document();
+            /*var doc = new Document();
             var history = new HistoryDocument();
 
             doc.SetContent("Ali");
@@ -50,12 +52,31 @@ namespace DesignPatterns
 
             Console.WriteLine(doc.GetContent());
             Console.WriteLine(doc.GetFontName());
-            Console.WriteLine(doc.GetSizeFont());
+            Console.WriteLine(doc.GetSizeFont());*/
+
+            #endregion
+
+            #region State
+
+            /*
+            var canvas = new Canvas(new Eraser());
+            canvas.MouseUp();
+            canvas.MouseDown();
+            */
+
+            #endregion
+
+            #region AbuseStatePattern
+
+            var stopwatch = new StopWatch();
+            stopwatch.Click();
+            stopwatch.Click();
+
 
             #endregion
         }
 
-        static void Drawing(UiControl control)
+        static void Drawing(UiControl control) 
         {
             control.Draw();
         }
