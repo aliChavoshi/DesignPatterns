@@ -1,6 +1,7 @@
 ﻿using System;
 using DesignPatterns.DependencyInjection;
 using DesignPatterns.Inheritance;
+using DesignPatterns.IteratorPattern;
 using DesignPatterns.MementoPattern;
 using DesignPatterns.MementoPattern.Exercise;
 using DesignPatterns.State;
@@ -68,15 +69,32 @@ namespace DesignPatterns
 
             #region AbuseStatePattern
 
-            var stopwatch = new StopWatch();
+            /*var stopwatch = new StopWatch();
             stopwatch.Click();
-            stopwatch.Click();
+            stopwatch.Click();*/
 
+
+            #endregion
+
+            #region IteratorPattern
+
+            var history = new BrowserHistory();
+            history.Push("a");
+            history.Push("b");
+            history.Push("c");
+
+            var iterator = history.CreateIterator();
+            while (iterator.HasNext())
+            {
+                var url = iterator.Current();
+                Console.WriteLine(url);
+                iterator.Next();
+            }
 
             #endregion
         }
 
-        static void Drawing(UiControl control) 
+        static void Drawing(UiControl control)
         {
             control.Draw();
         }
