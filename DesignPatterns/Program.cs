@@ -1,6 +1,7 @@
 ﻿using DesignPatterns.DependencyInjection;
 using DesignPatterns.Inheritance;
 using DesignPatterns.Strategy;
+using DesignPatterns.TemplatePattern;
 
 namespace DesignPatterns
 {
@@ -90,9 +91,18 @@ namespace DesignPatterns
 
             #region StartegyPattern
 
+            /*
             var store = new ImageStore();
             store.Store("a",new JpegCompressor(),new BlackAndWhite());
             store.Store("b",new PngCompressor(),new HighContrast());
+            */
+
+            #endregion
+
+            #region Template
+
+            var task = new TransferMoneyTask();
+            task.Execute();
 
             #endregion
         }
