@@ -1,11 +1,6 @@
-﻿using System;
-using DesignPatterns.DependencyInjection;
+﻿using DesignPatterns.DependencyInjection;
 using DesignPatterns.Inheritance;
-using DesignPatterns.IteratorPattern;
-using DesignPatterns.MementoPattern;
-using DesignPatterns.MementoPattern.Exercise;
-using DesignPatterns.State;
-using DesignPatterns.State.Abuse;
+using DesignPatterns.Strategy;
 
 namespace DesignPatterns
 {
@@ -78,7 +73,7 @@ namespace DesignPatterns
 
             #region IteratorPattern
 
-            var history = new BrowserHistory();
+            /*var history = new BrowserHistory();
             history.Push("a");
             history.Push("b");
             history.Push("c");
@@ -89,7 +84,15 @@ namespace DesignPatterns
                 var url = iterator.Current();
                 Console.WriteLine(url);
                 iterator.Next();
-            }
+            }*/
+
+            #endregion
+
+            #region StartegyPattern
+
+            var store = new ImageStore();
+            store.Store("a",new JpegCompressor(),new BlackAndWhite());
+            store.Store("b",new PngCompressor(),new HighContrast());
 
             #endregion
         }
