@@ -1,4 +1,7 @@
-﻿using DesignPatterns.DependencyInjection;
+﻿using DesignPatterns.CommandPattern;
+using DesignPatterns.CommandPattern.CompositeCommand;
+using DesignPatterns.CommandPattern.fx;
+using DesignPatterns.DependencyInjection;
 using DesignPatterns.Inheritance;
 using DesignPatterns.Strategy;
 using DesignPatterns.TemplatePattern;
@@ -101,8 +104,23 @@ namespace DesignPatterns
 
             #region Template
 
-            var task = new TransferMoneyTask();
-            task.Execute();
+            /*var task = new TransferMoneyTask();
+            task.Execute();*/
+
+            #endregion
+
+            #region Command
+
+            /*var service = new CustomerService();
+            var command = new AddCustomerCommand(service);
+            var button = new Button(command, "Add");
+            button.Click();*/
+
+            var composite = new CompositeCommand();
+            composite.Add(new ResizeCommand());
+            composite.Add(new BlackAndWhiteCommand());
+            composite.Execute();
+
 
             #endregion
         }
