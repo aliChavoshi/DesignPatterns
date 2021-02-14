@@ -5,6 +5,7 @@ using DesignPatterns.CommandPattern.fx;
 using DesignPatterns.CommandPattern.Undoable;
 using DesignPatterns.DependencyInjection;
 using DesignPatterns.Inheritance;
+using DesignPatterns.Observer;
 using DesignPatterns.Strategy;
 using DesignPatterns.TemplatePattern;
 
@@ -123,6 +124,7 @@ namespace DesignPatterns
             composite.Add(new BlackAndWhiteCommand());
             composite.Execute();*/
 
+            /*
             var htmlDocument = new HtmlDocument();
             htmlDocument.SetContent("Hello World");
 
@@ -138,7 +140,21 @@ namespace DesignPatterns
 
             var undoCommand = new UndoCommand(history);
             undoCommand.Execute();
-            Console.WriteLine(htmlDocument.GetContent());
+            Console.WriteLine(htmlDocument.GetContent());*/
+
+            #endregion
+
+            #region Observer
+
+            var dataSource = new DataSource();
+
+            var chart = new Chart(dataSource);
+            var spreadChart = new SpreadSheet(dataSource);
+
+            dataSource.AddObserver(chart);
+            dataSource.AddObserver(spreadChart);
+
+            dataSource.SetValue(10);
 
             #endregion
         }
