@@ -1,6 +1,8 @@
-﻿using DesignPatterns.CommandPattern;
+﻿using System;
+using DesignPatterns.CommandPattern;
 using DesignPatterns.CommandPattern.CompositeCommand;
 using DesignPatterns.CommandPattern.fx;
+using DesignPatterns.CommandPattern.Undoable;
 using DesignPatterns.DependencyInjection;
 using DesignPatterns.Inheritance;
 using DesignPatterns.Strategy;
@@ -116,11 +118,27 @@ namespace DesignPatterns
             var button = new Button(command, "Add");
             button.Click();*/
 
-            var composite = new CompositeCommand();
+            /*var composite = new CompositeCommand();
             composite.Add(new ResizeCommand());
             composite.Add(new BlackAndWhiteCommand());
-            composite.Execute();
+            composite.Execute();*/
 
+            var htmlDocument = new HtmlDocument();
+            htmlDocument.SetContent("Hello World");
+
+            var history = new History();
+            var boldCommand = new BoldCommand(htmlDocument, history);
+            var italicCommand = new ItalicCommand(htmlDocument, history);
+
+            italicCommand.Execute();
+            Console.WriteLine(htmlDocument.GetContent());
+
+            boldCommand.Execute();
+            Console.WriteLine(htmlDocument.GetContent());
+
+            var undoCommand = new UndoCommand(history);
+            undoCommand.Execute();
+            Console.WriteLine(htmlDocument.GetContent());
 
             #endregion
         }
