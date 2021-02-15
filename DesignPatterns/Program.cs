@@ -4,10 +4,11 @@ using DesignPatterns.CommandPattern.CompositeCommand;
 using DesignPatterns.CommandPattern.fx;
 using DesignPatterns.CommandPattern.Undoable;
 using DesignPatterns.DependencyInjection;
-using DesignPatterns.Inheritance;
+using DesignPatterns.Mediator;
 using DesignPatterns.Observer;
 using DesignPatterns.Strategy;
 using DesignPatterns.TemplatePattern;
+using UiControl = DesignPatterns.Inheritance.UiControl;
 
 namespace DesignPatterns
 {
@@ -146,7 +147,7 @@ namespace DesignPatterns
 
             #region Observer
 
-            var dataSource = new DataSource();
+            /*var dataSource = new DataSource();
 
             var chart = new Chart(dataSource);
             var spreadChart = new SpreadSheet(dataSource);
@@ -154,7 +155,14 @@ namespace DesignPatterns
             dataSource.AddObserver(chart);
             dataSource.AddObserver(spreadChart);
 
-            dataSource.SetValue(10);
+            dataSource.SetValue(10);*/
+
+            #endregion
+
+            #region Mediator
+
+            var dialogBox = new ArticlesDialogBox();
+            dialogBox.SimulateUserInteraction();
 
             #endregion
         }
