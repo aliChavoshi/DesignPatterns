@@ -5,11 +5,11 @@ namespace DesignPatterns.Observer
     public class Subject
     {
         private readonly List<IObserver> _observers = new List<IObserver>();
-        public void AddObserver(IObserver obs)
+        public void Attach(IObserver obs)
         {
             _observers.Add(obs);
         }
-        public void RemoveObserver(IObserver obs)
+        public void Detach(IObserver obs)
         {
             _observers.Remove(obs);
         }

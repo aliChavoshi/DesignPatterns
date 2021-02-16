@@ -152,8 +152,8 @@ namespace DesignPatterns
             var chart = new Chart(dataSource);
             var spreadChart = new SpreadSheet(dataSource);
 
-            dataSource.AddObserver(chart);
-            dataSource.AddObserver(spreadChart);
+            dataSource.Attach(chart);
+            dataSource.Attach(spreadChart);
 
             dataSource.SetValue(10);*/
 
