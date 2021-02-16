@@ -1,13 +1,7 @@
-﻿using System;
-using DesignPatterns.CommandPattern;
-using DesignPatterns.CommandPattern.CompositeCommand;
-using DesignPatterns.CommandPattern.fx;
-using DesignPatterns.CommandPattern.Undoable;
+﻿using System.Collections;
+using DesignPatterns.ChainOfResponsibility;
 using DesignPatterns.DependencyInjection;
 using DesignPatterns.Mediator;
-using DesignPatterns.Observer;
-using DesignPatterns.Strategy;
-using DesignPatterns.TemplatePattern;
 using UiControl = DesignPatterns.Inheritance.UiControl;
 
 namespace DesignPatterns
@@ -161,8 +155,22 @@ namespace DesignPatterns
 
             #region Mediator
 
+            /*
             var dialogBox = new ArticlesDialogBox();
             dialogBox.SimulateUserInteraction();
+            */
+
+            #endregion
+
+            #region ChainOfResponsibility
+
+            //authenticator -> logger -> compressor = Last Task
+            var compressor = new Compressor(null);
+            var logger = new Logger(next: compressor);
+            var authenticator = new Authenticator(next: logger);
+
+            var webServer = new WebServer(handler: authenticator);
+            webServer.Handle(new HttpRequest("admin", "1234"));
 
             #endregion
         }
