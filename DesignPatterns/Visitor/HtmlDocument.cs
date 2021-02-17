@@ -2,7 +2,7 @@
 
 namespace DesignPatterns.Visitor
 {
-    public class HtmlDocument
+    public class HtmlDocument : IHtmlNode
     {
         private readonly List<IHtmlNode> _htmlNodes = new();
         public void Add(IHtmlNode node)
