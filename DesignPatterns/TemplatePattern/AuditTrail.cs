@@ -4,7 +4,7 @@ namespace DesignPatterns.TemplatePattern
 {
     public class AuditTrail
     {
-        public void Record()
+        public void Record(string message)
         {
             Console.WriteLine("Record Task");
         }

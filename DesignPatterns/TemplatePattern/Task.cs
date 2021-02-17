@@ -8,9 +8,9 @@
         {
             _auditTrail = new AuditTrail();
         }
-        public void Execute()
+        public void Execute(string message)
         {
-            _auditTrail.Record();
+            _auditTrail.Record(message);
 
             DoExecute();
         }

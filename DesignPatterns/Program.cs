@@ -2,6 +2,7 @@
 using DesignPatterns.ChainOfResponsibility;
 using DesignPatterns.DependencyInjection;
 using DesignPatterns.Mediator;
+using DesignPatterns.State.Abuse;
 using DesignPatterns.Visitor;
 using UiControl = DesignPatterns.Inheritance.UiControl;
 
@@ -68,8 +69,8 @@ namespace DesignPatterns
             #region AbuseStatePattern
 
             /*var stopwatch = new StopWatch();
-            stopwatch.Click();
-            stopwatch.Click();*/
+            stopwatch.Click();//Running
+            stopwatch.Click();//Stopped*/
 
 
             #endregion
