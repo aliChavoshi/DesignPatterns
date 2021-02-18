@@ -1,4 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
+using DesignPatterns.Adapter;
+using DesignPatterns.Adapter.AvaFilters;
+using DesignPatterns.Adapter.Filters;
 using DesignPatterns.ChainOfResponsibility;
 using DesignPatterns.Composite;
 using DesignPatterns.DependencyInjection;
@@ -189,6 +193,7 @@ namespace DesignPatterns
 
             #region Composite
 
+            /*
             var group1 = new Group();
             group1.Add(new Shape()); //Circle
             group1.Add(new Shape()); //Circle
@@ -201,7 +206,15 @@ namespace DesignPatterns
             group.Add(group1);
             group.Add(group2);
             group.Render();
-            group.Move();
+            group.Move();*/
+
+            #endregion
+
+            #region AdapterPattern
+
+            var imageView = new ImageView(new Image());
+            imageView.Apply(new CaramelAdapter());
+            imageView.Apply(new VividFilter());
 
             #endregion
         }
