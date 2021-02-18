@@ -5,6 +5,7 @@ using DesignPatterns.Adapter.AvaFilters;
 using DesignPatterns.Adapter.Filters;
 using DesignPatterns.ChainOfResponsibility;
 using DesignPatterns.Composite;
+using DesignPatterns.Decorator;
 using DesignPatterns.DependencyInjection;
 using DesignPatterns.Mediator;
 using DesignPatterns.State.Abuse;
@@ -212,11 +213,22 @@ namespace DesignPatterns
 
             #region AdapterPattern
 
-            var imageView = new ImageView(new Image());
+            /*var imageView = new ImageView(new Image());
             imageView.Apply(new CaramelAdapter());
-            imageView.Apply(new VividFilter());
+            imageView.Apply(new VividFilter());*/
 
             #endregion
+
+            #region Decorator
+
+            StoreCreditCard(new EncryptCloudStream(new CompressedCloudStream(new CloudStream())));
+
+            #endregion
+        }
+
+        static void StoreCreditCard(IStream stream)
+        {
+            stream.Write("123-123-123-123");
         }
 
         static void Drawing(UiControl control)
