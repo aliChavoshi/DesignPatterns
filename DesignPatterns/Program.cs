@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using DesignPatterns.ChainOfResponsibility;
+using DesignPatterns.Composite;
 using DesignPatterns.DependencyInjection;
 using DesignPatterns.Mediator;
 using DesignPatterns.State.Abuse;
@@ -178,11 +179,29 @@ namespace DesignPatterns
 
             #region VisitorPattern
 
-            var document = new HtmlDocument();
+            /*var document = new HtmlDocument();
             document.Add(new AnchorNode());
             document.Add(new HeadingNode());
             document.Execute(new HighlightOperation());
-            document.Execute(new PlainTextOperation());
+            document.Execute(new PlainTextOperation());*/
+
+            #endregion
+
+            #region Composite
+
+            var group1 = new Group();
+            group1.Add(new Shape()); //Circle
+            group1.Add(new Shape()); //Circle
+
+            var group2 = new Group();
+            group2.Add(new Shape()); //Rectangle
+            group2.Add(new Shape()); //Rectangle
+
+            var group = new Group();
+            group.Add(group1);
+            group.Add(group2);
+            group.Render();
+            group.Move();
 
             #endregion
         }
