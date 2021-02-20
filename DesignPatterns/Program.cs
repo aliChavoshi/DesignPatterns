@@ -7,6 +7,7 @@ using DesignPatterns.ChainOfResponsibility;
 using DesignPatterns.Composite;
 using DesignPatterns.Decorator;
 using DesignPatterns.DependencyInjection;
+using DesignPatterns.FacadePattern;
 using DesignPatterns.Mediator;
 using DesignPatterns.State.Abuse;
 using DesignPatterns.Visitor;
@@ -222,6 +223,13 @@ namespace DesignPatterns
             #region Decorator
 
             StoreCreditCard(new EncryptCloudStream(new CompressedCloudStream(new CloudStream())));
+
+            #endregion
+
+            #region FacadePattern
+
+            var sendNotification = new NotificationService();
+            sendNotification.Send("Hello World", "target");
 
             #endregion
         }

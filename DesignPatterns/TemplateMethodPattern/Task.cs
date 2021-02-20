@@ -1,4 +1,4 @@
-﻿namespace DesignPatterns.TemplatePattern
+﻿namespace DesignPatterns.TemplateMethodPattern
 {
     public abstract class Task
     {

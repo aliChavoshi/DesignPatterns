@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DesignPatterns.TemplatePattern
+namespace DesignPatterns.TemplateMethodPattern
 {
     public class GenerateReportTask :Task
     {
