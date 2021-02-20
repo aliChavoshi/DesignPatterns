@@ -8,6 +8,7 @@ using DesignPatterns.Composite;
 using DesignPatterns.Decorator;
 using DesignPatterns.DependencyInjection;
 using DesignPatterns.FacadePattern;
+using DesignPatterns.FlyweightPattern;
 using DesignPatterns.Mediator;
 using DesignPatterns.State.Abuse;
 using DesignPatterns.Visitor;
@@ -231,6 +232,15 @@ namespace DesignPatterns
             var sendNotification = new NotificationService();
             sendNotification.Send("Hello World", "target");
 
+            #endregion
+
+            #region FlyweightPattern
+
+            var service = new PointService(new PointIconFactory());
+            foreach (var point in service.GetPoints())
+            {
+                point.Draw();
+            }
             #endregion
         }
 
