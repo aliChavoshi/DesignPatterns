@@ -3,6 +3,7 @@ using System.Collections;
 using DesignPatterns.Adapter;
 using DesignPatterns.Adapter.AvaFilters;
 using DesignPatterns.Adapter.Filters;
+using DesignPatterns.BridgePattern;
 using DesignPatterns.ChainOfResponsibility;
 using DesignPatterns.Composite;
 using DesignPatterns.Decorator;
@@ -241,6 +242,13 @@ namespace DesignPatterns
             {
                 point.Draw();
             }
+            #endregion
+
+            #region BridgePattern
+
+            var remote = new RemoteControl(new LgTV());
+            remote.TurnOn();
+
             #endregion
         }
 
