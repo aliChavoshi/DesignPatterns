@@ -11,6 +11,7 @@ using DesignPatterns.DependencyInjection;
 using DesignPatterns.FacadePattern;
 using DesignPatterns.FlyweightPattern;
 using DesignPatterns.Mediator;
+using DesignPatterns.Proxy;
 using DesignPatterns.State.Abuse;
 using DesignPatterns.Visitor;
 using UiControl = DesignPatterns.Inheritance.UiControl;
@@ -224,30 +225,47 @@ namespace DesignPatterns
 
             #region Decorator
 
+            /*
             StoreCreditCard(new EncryptCloudStream(new CompressedCloudStream(new CloudStream())));
+            */
 
             #endregion
 
             #region FacadePattern
 
+            /*
             var sendNotification = new NotificationService();
             sendNotification.Send("Hello World", "target");
+            */
 
             #endregion
 
             #region FlyweightPattern
 
-            var service = new PointService(new PointIconFactory());
+            /*var service = new PointService(new PointIconFactory());
             foreach (var point in service.GetPoints())
             {
                 point.Draw();
-            }
+            }*/
             #endregion
 
             #region BridgePattern
 
-            var remote = new RemoteControl(new LgTV());
-            remote.TurnOn();
+            /*var remote = new RemoteControl(new LgTV());
+            remote.TurnOn();*/
+
+            #endregion
+
+            #region Proxy
+
+            var library = new Library();
+            string[] books = { "a", "b", "c" };
+
+            foreach (var book in books)
+                library.Add(new LoggingEbookProxy(book));
+
+            library.OpenEBook("a");
+            library.OpenEBook("b");
 
             #endregion
         }
