@@ -10,6 +10,7 @@ public sealed class Logger
         Console.WriteLine("Logger was created with Lazy");
     }
 
+    //this method related to the Instance
     public void Log(string message)
     {
         Console.WriteLine($"Log: {message}");
