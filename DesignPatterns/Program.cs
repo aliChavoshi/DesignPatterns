@@ -1,3 +1,5 @@
-﻿using DesignPatterns.Singleton;
+﻿using DesignPatterns.Factory_Method._1;
 
-Logger.Instance.Log("Hello, Singleton!");
+new RoadLogistics().PlanDelivery("A");
+new SeaLogistics().PlanDelivery("B");
+new PlaneLogistics().PlanDelivery("C");
