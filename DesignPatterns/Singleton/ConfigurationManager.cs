@@ -6,6 +6,7 @@ public sealed class ConfigurationManager
     private static readonly Lock Lock = new();
     public static Dictionary<string, string>? Settings { get; private set; }
 
+    //private constructor to prevent instantiation
     private ConfigurationManager()
     {
         //Add Configuration in the private constructor
@@ -22,11 +23,7 @@ public sealed class ConfigurationManager
         get
         {
             if (Instance != null) return Instance;
-            lock (Lock)
-            {
-                Instance ??= new ConfigurationManager();
-            }
-
+            lock (Lock) Instance ??= new ConfigurationManager();
             return Instance;
         }
     }
