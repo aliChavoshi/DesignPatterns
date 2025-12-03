@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Adapter\2\" />
+    <Folder Include="Structural\Facade\" />
   </ItemGroup>
 
 </Project>

@@ -1,7 +1,4 @@
-﻿using DesignPatterns.Adapter._1;
-using DesignPatterns.Adapter._2;
-using DesignPatterns.Builder._1;
-using DesignPatterns.Builder._2;
+﻿using DesignPatterns.Structural.Adapter._2;
 
 //Factory Method Pattern
 // new RoadLogistics().PlanDelivery("A");
