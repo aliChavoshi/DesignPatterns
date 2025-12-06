@@ -1,4 +1,5 @@
 ﻿using DesignPatterns.Structural.Adapter._2;
+using DesignPatterns.Structural.Facade._1;
 
 //Factory Method Pattern
 // new RoadLogistics().PlanDelivery("A");
@@ -37,10 +38,22 @@
 
 //Adapter Pattern - Payment Example
 // سیستم پرداخت داخلی
-IPaymentProcessor internalPayment = new InternalPaymentProcessor();
-internalPayment.ProcessPayment(1_000_000, "IRR");
-internalPayment.ValidatePayment();
+// IPaymentProcessor internalPayment = new InternalPaymentProcessor();
+// internalPayment.ProcessPayment(1_000_000, "IRR");
+// internalPayment.ValidatePayment();
+//
+// IPaymentProcessor payPalAdapter = new PayPalAdapter();
+// payPalAdapter.ProcessPayment(1_000_000, "IRR");
+// payPalAdapter.ValidatePayment();
 
-IPaymentProcessor payPalAdapter = new PayPalAdapter();
-payPalAdapter.ProcessPayment(1_000_000, "IRR");
-payPalAdapter.ValidatePayment();
+//Facade Pattern
+HomeTheaterFacade homeTheater = new HomeTheaterFacade();
+
+// تماشای فیلم
+homeTheater.WatchMovie("Game of Thrones");
+
+Console.WriteLine("\n Press Enter to stop the movie...");
+Console.ReadLine();
+
+// پایان فیلم
+homeTheater.EndMovie();
