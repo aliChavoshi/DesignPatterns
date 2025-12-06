@@ -1,5 +1,6 @@
 ﻿using DesignPatterns.Structural.Adapter._2;
 using DesignPatterns.Structural.Facade._1;
+using DesignPatterns.Structural.Facade._2;
 
 //Factory Method Pattern
 // new RoadLogistics().PlanDelivery("A");
@@ -47,13 +48,18 @@ using DesignPatterns.Structural.Facade._1;
 // payPalAdapter.ValidatePayment();
 
 //Facade Pattern
-HomeTheaterFacade homeTheater = new HomeTheaterFacade();
+// HomeTheaterFacade homeTheater = new HomeTheaterFacade();
+//
+// // تماشای فیلم
+// homeTheater.WatchMovie("Game of Thrones");
+//
+// Console.WriteLine("\n Press Enter to stop the movie...");
+// Console.ReadLine();
+//
+// // پایان فیلم
+// homeTheater.EndMovie();
 
-// تماشای فیلم
-homeTheater.WatchMovie("Game of Thrones");
-
-Console.WriteLine("\n Press Enter to stop the movie...");
-Console.ReadLine();
-
-// پایان فیلم
-homeTheater.EndMovie();
+// Facade Pattern - Order Example
+OrderFacade orderSystem = new OrderFacade();
+orderSystem.PlaceOrder("P123", 150_000,
+    "Kashan", "user@example.com");
