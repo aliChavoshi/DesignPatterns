@@ -1,4 +1,5 @@
-﻿using DesignPatterns.Structural.Adapter._2;
+﻿using DesignPatterns.Behavioral.Strategy;
+using DesignPatterns.Structural.Adapter._2;
 using DesignPatterns.Structural.Facade._1;
 using DesignPatterns.Structural.Facade._2;
 
@@ -60,6 +61,18 @@ using DesignPatterns.Structural.Facade._2;
 // homeTheater.EndMovie();
 
 // Facade Pattern - Order Example
-OrderFacade orderSystem = new OrderFacade();
-orderSystem.PlaceOrder("P123", 150_000,
-    "Kashan", "user@example.com");
+// OrderFacade orderSystem = new OrderFacade();
+// orderSystem.PlaceOrder("P123", 150_000,
+//     "Kashan", "user@example.com");
+
+//Strategy Pattern
+var shoppingCart = new ShoppingCart();
+shoppingCart.AddItem("Item1", 100);
+shoppingCart.AddItem("Item2", 200);
+shoppingCart.AddItem("Item3", 300);
+shoppingCart.SetPaymentStrategy(new CreditCardStrategy("6219-1234-5678-9010"));
+shoppingCart.Checkout();
+shoppingCart.SetPaymentStrategy(new CryptoStrategy("your-crypto-wallet-address"));
+shoppingCart.Checkout();
+shoppingCart.SetPaymentStrategy(new PayPalStrategy("your-paypal-email@example.com"));
+shoppingCart.Checkout();
