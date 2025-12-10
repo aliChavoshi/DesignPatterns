@@ -1,7 +1,12 @@
-﻿using DesignPatterns.Behavioral.Strategy;
+﻿using DesignPatterns.Behavioral.Observer;
+using DesignPatterns.Behavioral.Strategy;
+using DesignPatterns.Creational.Singleton;
 using DesignPatterns.Structural.Adapter._2;
 using DesignPatterns.Structural.Facade._1;
 using DesignPatterns.Structural.Facade._2;
+
+//Singleton Pattern
+// var single = ConfigurationManager.GetInstance;
 
 //Factory Method Pattern
 // new RoadLogistics().PlanDelivery("A");
@@ -66,13 +71,20 @@ using DesignPatterns.Structural.Facade._2;
 //     "Kashan", "user@example.com");
 
 //Strategy Pattern
-var shoppingCart = new ShoppingCart();
-shoppingCart.AddItem("Item1", 100);
-shoppingCart.AddItem("Item2", 200);
-shoppingCart.AddItem("Item3", 300);
-shoppingCart.SetPaymentStrategy(new CreditCardStrategy("6219-1234-5678-9010"));
-shoppingCart.Checkout();
-shoppingCart.SetPaymentStrategy(new CryptoStrategy("your-crypto-wallet-address"));
-shoppingCart.Checkout();
-shoppingCart.SetPaymentStrategy(new PayPalStrategy("your-paypal-email@example.com"));
-shoppingCart.Checkout();
+// var shoppingCart = new ShoppingCart();
+// shoppingCart.AddItem("Item1", 100);
+// shoppingCart.AddItem("Item2", 200);
+// shoppingCart.AddItem("Item3", 300);
+// shoppingCart.SetPaymentStrategy(new CreditCardStrategy("6219-1234-5678-9010"));
+// shoppingCart.Checkout();
+// shoppingCart.SetPaymentStrategy(new CryptoStrategy("your-crypto-wallet-address"));
+// shoppingCart.Checkout();
+// shoppingCart.SetPaymentStrategy(new PayPalStrategy("your-paypal-email@example.com"));
+// shoppingCart.Checkout();
+
+//Observer Pattern
+var weatherStation = new WeatherStation();
+weatherStation.Attach(new PhoneDisplay());
+weatherStation.Attach(new TVDisplay());
+weatherStation.SetTemperature(20);
+weatherStation.SetTemperature(30);
