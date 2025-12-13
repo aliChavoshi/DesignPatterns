@@ -3,6 +3,8 @@ using DesignPatterns.Behavioral.Strategy;
 using DesignPatterns.Creational.Singleton;
 using DesignPatterns.Structural.Adapter._2;
 using DesignPatterns.Structural.Decorator;
+using DesignPatterns.Structural.Decorator._1;
+using DesignPatterns.Structural.Decorator._2;
 using DesignPatterns.Structural.Facade._1;
 using DesignPatterns.Structural.Facade._2;
 
@@ -92,20 +94,29 @@ using DesignPatterns.Structural.Facade._2;
 
 //Decorator Pattern
 // 1. Simple Coffee
-var coffee = new SimpleCoffee();
-Console.WriteLine("simple coffee");
-Console.WriteLine("description: " + coffee.Description());
-Console.WriteLine("cost: " + coffee.Cost());
-//2. Simple Coffee with Milk
-ICoffee coffee2 = new SimpleCoffee();
-coffee2 = new MilkDecorator(coffee2);
-Console.WriteLine("\n simple coffee with milk");
-Console.WriteLine("description: " + coffee2.Description());
-Console.WriteLine("cost: " + coffee2.Cost());
-//3.Milk with sugar
-ICoffee coffee3 = new SimpleCoffee();
-coffee3 = new MilkDecorator(coffee3);
-coffee3 = new SugarDecorator(coffee3);
-Console.WriteLine("\n simple coffee with milk and sugar");
-Console.WriteLine("description: " + coffee3.Description());
-Console.WriteLine("cost: " + coffee3.Cost());
+// var coffee = new SimpleCoffee();
+// Console.WriteLine("simple coffee");
+// Console.WriteLine("description: " + coffee.Description());
+// Console.WriteLine("cost: " + coffee.Cost());
+// //2. Simple Coffee with Milk
+// ICoffee coffee2 = new SimpleCoffee();
+// coffee2 = new MilkDecorator(coffee2);
+// Console.WriteLine("\n simple coffee with milk");
+// Console.WriteLine("description: " + coffee2.Description());
+// Console.WriteLine("cost: " + coffee2.Cost());
+// //3.Milk with sugar
+// ICoffee coffee3 = new SimpleCoffee();
+// coffee3 = new MilkDecorator(coffee3);
+// coffee3 = new SugarDecorator(coffee3);
+// Console.WriteLine("\n simple coffee with milk and sugar");
+// Console.WriteLine("description: " + coffee3.Description());
+// Console.WriteLine("cost: " + coffee3.Cost());
+
+////////////////////2////////////////////
+// ایجاد منبع داده فایل
+IDataSource file = new FileDataSource("data.txt");
+// اضافه کردن لایه رمزنگاری
+IDataSource encryptedFile = new EncryptionDecorator(file);
+// اضافه کردن لایه فشرده‌سازی
+IDataSource compressedEncrypted = new CompressionDecorator(encryptedFile);
+compressedEncrypted.WriteData("compress");
