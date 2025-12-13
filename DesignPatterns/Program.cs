@@ -2,6 +2,7 @@
 using DesignPatterns.Behavioral.Strategy;
 using DesignPatterns.Creational.Singleton;
 using DesignPatterns.Structural.Adapter._2;
+using DesignPatterns.Structural.Decorator;
 using DesignPatterns.Structural.Facade._1;
 using DesignPatterns.Structural.Facade._2;
 
@@ -83,8 +84,28 @@ using DesignPatterns.Structural.Facade._2;
 // shoppingCart.Checkout();
 
 //Observer Pattern
-var weatherStation = new WeatherStation();
-weatherStation.Attach(new PhoneDisplay());
-weatherStation.Attach(new TVDisplay());
-weatherStation.SetTemperature(20);
-weatherStation.SetTemperature(30);
+// var weatherStation = new WeatherStation();
+// weatherStation.Attach(new PhoneDisplay());
+// weatherStation.Attach(new TvDisplay());
+// weatherStation.SetTemperature(20);
+// weatherStation.SetTemperature(30);
+
+//Decorator Pattern
+// 1. Simple Coffee
+var coffee = new SimpleCoffee();
+Console.WriteLine("simple coffee");
+Console.WriteLine("description: " + coffee.Description());
+Console.WriteLine("cost: " + coffee.Cost());
+//2. Simple Coffee with Milk
+ICoffee coffee2 = new SimpleCoffee();
+coffee2 = new MilkDecorator(coffee2);
+Console.WriteLine("\n simple coffee with milk");
+Console.WriteLine("description: " + coffee2.Description());
+Console.WriteLine("cost: " + coffee2.Cost());
+//3.Milk with sugar
+ICoffee coffee3 = new SimpleCoffee();
+coffee3 = new MilkDecorator(coffee3);
+coffee3 = new SugarDecorator(coffee3);
+Console.WriteLine("\n simple coffee with milk and sugar");
+Console.WriteLine("description: " + coffee3.Description());
+Console.WriteLine("cost: " + coffee3.Cost());

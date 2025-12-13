@@ -1,6 +1,6 @@
 ﻿namespace DesignPatterns.Behavioral.Observer;
 
-public class TVDisplay : IObserver
+public class TvDisplay : IObserver
 {
     public void Update(string message)
     {

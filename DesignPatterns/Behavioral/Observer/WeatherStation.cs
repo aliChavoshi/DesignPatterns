@@ -2,7 +2,7 @@
 
 public class WeatherStation
 {
-    private readonly List<IObserver> _observers = new();
+    private readonly List<IObserver> _observers = [];
 
     private float _temperature;
 
