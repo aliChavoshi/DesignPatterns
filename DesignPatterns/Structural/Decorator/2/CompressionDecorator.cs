@@ -1,17 +1,18 @@
 ﻿namespace DesignPatterns.Structural.Decorator._2;
 
-public class CompressionDecorator(IDataSource dataSource) : IDataSource
+public class CompressionDecorator(IDataSource source) : IDataSource
 {
     public void WriteData(string data)
     {
-        var compressData = "compress data";
-        Console.WriteLine(compressData);
-        dataSource.WriteData(compressData);
+        string compressed = $"compress {data}]";
+        Console.WriteLine("compressing...");
+        source.WriteData(compressed);
     }
 
     public string ReadData()
     {
-        var data = dataSource.ReadData();
-        return data;
+        string data = source.ReadData();
+        Console.WriteLine("opening the compressed data...");
+        return data.Replace("[compressed: ", "").Replace("]", "");
     }
 }

@@ -1,4 +1,5 @@
-﻿using DesignPatterns.Behavioral.Observer;
+﻿using System.Text;
+using DesignPatterns.Behavioral.Observer;
 using DesignPatterns.Behavioral.Strategy;
 using DesignPatterns.Creational.Singleton;
 using DesignPatterns.Structural.Adapter._2;
@@ -112,11 +113,29 @@ using DesignPatterns.Structural.Facade._2;
 // Console.WriteLine("description: " + coffee3.Description());
 // Console.WriteLine("cost: " + coffee3.Cost());
 
-////////////////////2////////////////////
-// ایجاد منبع داده فایل
+// Decorator Pattern - Data Source Example
+// Initialize console encoding
+Console.OutputEncoding = System.Text.Encoding.UTF8;
+
+Console.WriteLine("🔐 Compression and Encryption Example\n");
+Console.WriteLine(new string('=', 60));
+
+// Create file data source
 IDataSource file = new FileDataSource("data.txt");
-// اضافه کردن لایه رمزنگاری
+
+// Add encryption layer
 IDataSource encryptedFile = new EncryptionDecorator(file);
-// اضافه کردن لایه فشرده‌سازی
+
+// Add compression layer
 IDataSource compressedEncrypted = new CompressionDecorator(encryptedFile);
-compressedEncrypted.WriteData("compress");
+
+Console.WriteLine("\n📝 Writing Data:");
+Console.WriteLine(new string('-', 60));
+compressedEncrypted.WriteData("Sensitive Data");
+
+Console.WriteLine("\n📖 Reading Data:");
+Console.WriteLine(new string('-', 60));
+string result = compressedEncrypted.ReadData();
+Console.WriteLine($"✅ Final Data: {result}");
+
+Console.WriteLine("\n" + new string('=', 60));

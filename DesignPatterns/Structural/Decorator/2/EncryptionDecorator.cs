@@ -1,17 +1,18 @@
 ﻿namespace DesignPatterns.Structural.Decorator._2;
 
-public class EncryptionDecorator(IDataSource dataSource) : IDataSource
+public class EncryptionDecorator(IDataSource source) : IDataSource
 {
     public void WriteData(string data)
     {
-        var encryptionData = "encrypt data";
-        Console.WriteLine(encryptionData);
-        dataSource.WriteData(encryptionData);
+        string encrypted = $"encrypting {data}]";
+        Console.WriteLine("🔒 Encrypting data...");
+        source.WriteData(encrypted);
     }
 
     public string ReadData()
     {
-        var data = dataSource.ReadData();
-        return data;
+        string data = source.ReadData();
+        Console.WriteLine("🔓 Decrypting data...");
+        return data.Replace("[encrypted: ", "").Replace("]", "");
     }
 }
